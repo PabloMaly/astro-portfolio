@@ -1,4 +1,56 @@
-# Astro Starter Kit: Minimal
+# Pablo Malynovytch's Portfolio
+
+A minimal, responsive portfolio website built with Astro, TypeScript, and Tailwind CSS.
+
+## 🚀 Tech Stack
+
+- [Astro](https://astro.build)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+
+## 🛠️ Development
+
+1. Clone the repository
+```bash
+git clone <your-repo-url>
+cd portfolio
+```
+
+2. Install dependencies
+```bash
+npm install
+```
+
+3. Start the development server
+```bash
+npm run dev
+```
+
+4. Open [http://localhost:4321](http://localhost:4321) in your browser
+
+## 🏗️ Building for Production
+
+To create a production build:
+
+```bash
+npm run build
+```
+
+Preview the production build:
+
+```bash
+npm run preview
+```
+
+## 📝 License
+
+MIT License - feel free to use this code for your own portfolio!
+
+## 📧 Contact
+
+- Email: [your.email@example.com](mailto:your.email@example.com)
+- GitHub: [yourusername](https://github.com/yourusername)
+- LinkedIn: [yourusername](https://linkedin.com/in/yourusername)
 
 ```sh
 npm create astro@latest -- --template minimal

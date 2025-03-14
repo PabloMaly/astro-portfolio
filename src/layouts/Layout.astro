@@ -1,0 +1,44 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Pablo Malynovytch's Portfolio - Web Developer" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-white text-black min-h-screen">
+    <header class="fixed top-0 w-full bg-white/90 backdrop-blur-sm z-50 border-b border-gray-100">
+      <nav class="max-w-4xl mx-auto px-4 py-4">
+        <div class="flex justify-between items-center">
+          <a href="/" class="text-xl font-bold text-black">PM</a>
+          <ul class="flex gap-8">
+            <li><a href="/#about" class="text-gray-600 hover:text-black transition-colors">About</a></li>
+            <li><a href="/#projects" class="text-gray-600 hover:text-black transition-colors">Projects</a></li>
+            <li><a href="/#contact" class="text-gray-600 hover:text-black transition-colors">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main class="pt-16">
+      <slot />
+    </main>
+    <footer class="border-t border-gray-100 mt-20 bg-white">
+      <div class="max-w-4xl mx-auto px-4 py-8 text-center text-gray-600">
+        <p>&copy; {new Date().getFullYear()} Pablo Malynovytch. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html> 
