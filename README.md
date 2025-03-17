@@ -12,7 +12,7 @@ A minimal, responsive portfolio website built with Astro, TypeScript, and Tailwi
 
 1. Clone the repository
 ```bash
-git clone <your-repo-url>
+git clone astro-portfolio
 cd portfolio
 ```
 
@@ -48,9 +48,9 @@ MIT License - feel free to use this code for your own portfolio!
 
 ## 📧 Contact
 
-- Email: [your.email@example.com](mailto:your.email@example.com)
-- GitHub: [yourusername](https://github.com/yourusername)
-- LinkedIn: [yourusername](https://linkedin.com/in/yourusername)
+- Email: [your.pablomalyk@gmail.com](mailto:your.pablomalyk@gmail.com)
+- GitHub: [PabloMaly](https://github.com/PabloMaly)
+- LinkedIn: [pablo-malynovytch](https://www.linkedin.com/in/pablo-malynovytch/)
 
 ```sh
 npm create astro@latest -- --template minimal
