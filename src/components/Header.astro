@@ -7,13 +7,13 @@ const { current = "home" } = Astro.props;
 ---
 
 <header
-  class="sticky top-0 max-w-4xl mx-auto bg-white/80 backdrop-blur-md z-50"
+  class="sticky top-0 max-w-4xl mx-auto backdrop-blur z-50 min-h-[60px]"
 >
-  <div class="flex justify-center w-full">
+  <div class="flex justify-center w-full h-full">
     <nav
-      class="fixed flex left-0 right-0 z-[100] border-[1.6px] border-[#0066ff] backdrop-blur-md bg-white/70 transition-all md:top-0 md:bottom-auto bottom-0 md:w-[33rem] rounded-t-2xl md:rounded-full md:mt-6 md:justify-self-center"
+      class="fixed flex left-0 right-0 z-[999] border-[1.6px] border-[#0066ff] backdrop-blur-lg bg-white/40 transition-all md:top-0 md:bottom-auto bottom-0 md:w-[33rem] w-full rounded-full md:mt-6 md:justify-self-center"
     >
-      <div class="container mx-auto flex justify-center items-center p-3">
+      <div class="container mx-auto flex justify-center items-center p-2">
         <ul
           class="flex w-full justify-between md:space-x-6 md:justify-center md:gap-12 gap-6"
         >
@@ -21,9 +21,12 @@ const { current = "home" } = Astro.props;
             <a
               href="#home"
               data-section="home"
-              class={`flex flex-col items-center gap-1 transition-colors text-xs md:text-base ${current === "home" ? "text-[#0066ff]" : "text-[var(--white-icon)]"}`}
+              class={`flex flex-col items-center transition-colors text-xs md:text-base ${current === "home" ? "text-[#0066ff]" : "text-gray-600"}`}
             >
-              <span class="md:hidden flex items-center justify-center w-6 h-6">
+              <span class="lg:inline-bloc md:flex items-center justify-center lg:w-4 lg:h-4 w-6 h-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                </svg>
               </span>
               <span class="hidden md:inline-block">Home</span>
               <span class="md:hidden">Home</span>
@@ -32,8 +35,13 @@ const { current = "home" } = Astro.props;
             <a
               href="#projects"
               data-section="projects"
-              class={`flex flex-col items-center gap-1 transition-colors text-xs md:text-base ${current === "projects" ? "text-[#0066ff]" : "text-[var(--white-icon)]"}`}
+              class={`flex flex-col items-center transition-colors text-xs md:text-base ${current === "projects" ? "text-[#0066ff]" : "text-gray-600"}`}
             >
+              <span class="flex items-center justify-center lg:w-4 lg:h-4 w-6 h-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z" />
+                </svg>
+              </span>
               <span class="hidden md:inline-block">Projects</span>
               <span class="md:hidden">Projects</span>
             </a>
@@ -41,8 +49,14 @@ const { current = "home" } = Astro.props;
             <a
               href="#contact"
               data-section="contact"
-              class={`flex flex-col items-center gap-1 transition-colors text-xs md:text-base ${current === "contact" ? "text-[#0066ff]" : "text-[var(--white-icon)]"}`}
+              class={`flex flex-col items-center transition-colors text-xs md:text-base ${current === "contact" ? "text-[#0066ff]" : "text-gray-600"}`}
             >
+              <span class="md:inline-block flex items-center justify-center lg:w-4 lg:h-4 w-6 h-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                </svg>
+              </span>
               <span class="hidden md:inline-block">Contact</span>
               <span class="md:hidden">Contact</span>
             </a>
@@ -78,12 +92,12 @@ const { current = "home" } = Astro.props;
     navLinks.forEach((link) => {
       const section = link.getAttribute("data-section");
       if (section === currentSectionId) {
-        link.classList.remove("text-[var(--white-icon)]");
+        link.classList.remove("text-gray-600");
         link.classList.add("text-[#0066ff]");
         link.classList.add("font-bold");
       } else {
         link.classList.remove("text-[#0066ff]");
-        link.classList.add("text-[var(--white-icon)]");
+        link.classList.add("text-gray-600");
         link.classList.remove("font-bold");
       }
     });
