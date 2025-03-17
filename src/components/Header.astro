@@ -1,0 +1,106 @@
+---
+interface Props {
+  current?: string;
+}
+
+const { current = "home" } = Astro.props;
+---
+
+<header
+  class="sticky top-0 max-w-4xl mx-auto bg-white/80 backdrop-blur-md z-50"
+>
+  <div class="flex justify-center w-full">
+    <nav
+      class="fixed flex left-0 right-0 z-[100] border-[1.6px] border-[#0066ff] backdrop-blur-md bg-white/70 transition-all md:top-0 md:bottom-auto bottom-0 md:w-[33rem] rounded-t-2xl md:rounded-full md:mt-6 md:justify-self-center"
+    >
+      <div class="container mx-auto flex justify-center items-center p-3">
+        <ul
+          class="flex w-full justify-between md:space-x-6 md:justify-center md:gap-12 gap-6"
+        >
+          <li class="flex-1 md:flex-none">
+            <a
+              href="#home"
+              data-section="home"
+              class={`flex flex-col items-center gap-1 transition-colors text-xs md:text-base ${current === "home" ? "text-[#0066ff]" : "text-[var(--white-icon)]"}`}
+            >
+              <span class="md:hidden flex items-center justify-center w-6 h-6">
+              </span>
+              <span class="hidden md:inline-block">Home</span>
+              <span class="md:hidden">Home</span>
+            </a>
+          </li><li class="flex-1 md:flex-none">
+            <a
+              href="#projects"
+              data-section="projects"
+              class={`flex flex-col items-center gap-1 transition-colors text-xs md:text-base ${current === "projects" ? "text-[#0066ff]" : "text-[var(--white-icon)]"}`}
+            >
+              <span class="hidden md:inline-block">Projects</span>
+              <span class="md:hidden">Projects</span>
+            </a>
+          </li><li class="flex-1 md:flex-none">
+            <a
+              href="#contact"
+              data-section="contact"
+              class={`flex flex-col items-center gap-1 transition-colors text-xs md:text-base ${current === "contact" ? "text-[#0066ff]" : "text-[var(--white-icon)]"}`}
+            >
+              <span class="hidden md:inline-block">Contact</span>
+              <span class="md:hidden">Contact</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  function updateActiveSection() {
+    const sections = ["home", "projects", "contact"];
+    const navLinks = document.querySelectorAll("a[data-section]");
+
+    // Find which section is currently in view
+    let currentSectionId = "home";
+    const scrollPosition = window.scrollY + window.innerHeight / 3;
+
+    sections.forEach((id) => {
+      const section = document.getElementById(id);
+      if (!section) return;
+
+      const sectionTop = section.offsetTop;
+      const sectionBottom = sectionTop + section.offsetHeight;
+
+      if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+        currentSectionId = id;
+      }
+    });
+
+    // Update active states
+    navLinks.forEach((link) => {
+      const section = link.getAttribute("data-section");
+      if (section === currentSectionId) {
+        link.classList.remove("text-[var(--white-icon)]");
+        link.classList.add("text-[#0066ff]");
+        link.classList.add("font-bold");
+      } else {
+        link.classList.remove("text-[#0066ff]");
+        link.classList.add("text-[var(--white-icon)]");
+        link.classList.remove("font-bold");
+      }
+    });
+  }
+
+  // Update active section on scroll
+  let ticking = false;
+  document.addEventListener("scroll", () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        updateActiveSection();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  // Initial check
+  document.addEventListener("DOMContentLoaded", updateActiveSection);
+</script>

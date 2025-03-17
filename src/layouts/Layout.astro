@@ -1,12 +1,19 @@
 ---
-import "../styles/global.css";
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
 interface Props {
   title: string;
   description?: string;
+  currentPage?: string;
 }
 
-const { title, description = "Pablo Malynovytch's Portfolio - Web Developer" } = Astro.props;
+const { 
+  title, 
+  description = "Pablo Malynovytch's Portfolio - Web Developer",
+  currentPage = 'home'
+} = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -15,30 +22,30 @@ const { title, description = "Pablo Malynovytch's Portfolio - Web Developer" } =
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <style>
+      /* Add filter for light logos on white backgrounds */
+      .light-logo {
+        filter: drop-shadow(0 0 1px rgba(0,0,0,0.3));
+        background-color: rgba(240,240,240,0.5);
+        border-radius: 4px;
+        padding: 4px;
+        box-shadow: 0 0 3px rgba(0,0,0,0.1);
+      }
+      .astro-logo {
+        background-color: #13151A;
+        border-radius: 50%;
+        padding: 2px;
+      }
+    </style>
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <title>{title}</title>
   </head>
   <body class="bg-white text-black min-h-screen">
-    <header class="fixed top-0 w-full bg-white/90 backdrop-blur-sm z-50 border-b border-gray-100">
-      <nav class="max-w-4xl mx-auto px-4 py-4">
-        <div class="flex justify-between items-center">
-          <a href="/" class="text-xl font-bold text-black">PM</a>
-          <ul class="flex gap-8">
-            <li><a href="/#about" class="text-gray-600 hover:text-black transition-colors">About</a></li>
-            <li><a href="/#projects" class="text-gray-600 hover:text-black transition-colors">Projects</a></li>
-            <li><a href="/#contact" class="text-gray-600 hover:text-black transition-colors">Contact</a></li>
-          </ul>
-        </div>
-      </nav>
-    </header>
-    <main class="pt-16">
+    <Header current={currentPage} />
+    <main>
       <slot />
     </main>
-    <footer class="border-t border-gray-100 mt-20 bg-white">
-      <div class="max-w-4xl mx-auto px-4 py-8 text-center text-gray-600">
-        <p>&copy; {new Date().getFullYear()} Pablo Malynovytch. All rights reserved.</p>
-      </div>
-    </footer>
+    <Footer />
   </body>
 </html> 

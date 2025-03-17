@@ -1,0 +1,67 @@
+---
+import { Image } from "astro:assets";
+
+const skills = [
+  "angular",
+  "react",
+  "javaScript",
+  "astro",
+  "typeScript",
+  "nodejs",
+  "tailwindcss",
+  "git",
+  "mysql",
+  "PHP",
+  "jasmine",
+  "jest",
+  "docker",
+  "AWS",
+  "jenkins",
+  "Agile",
+  "restAPI",
+  "mongoDB",
+  "express",
+  "karma",  
+];
+---
+
+<div class="max-w-4xl mx-auto">
+  <h2 class="text-4xl font-bold mb-16 text-center text-black">About Me</h2>
+  <div class="grid md:grid-cols-2 gap-16">
+    <div class="space-y-6">
+      <p class="text-lg text-gray-600 leading-relaxed">
+        I'm a passionate web developer with over 8 years of experience, focused
+        on creating beautiful and functional digital experiences. With a keen
+        eye for design and a love for clean code, I bring ideas to life through
+        modern web technologies.
+      </p>
+      <p class="text-lg text-gray-600 leading-relaxed">
+        My expertise includes TypeScript, Angular, React, Node.js, and modern
+        web frameworks. I'm always learning and exploring new technologies to
+        stay at the forefront of web development.
+      </p>
+    </div>
+    <div class="space-y-4">
+      <h3 class="text-2xl font-semibold text-black">Skills</h3>
+      <div class="flex flex-wrap gap-2">
+        {
+          skills.map((skill: string | null) => (
+            <div class="flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+              <Image
+                src={`/technologies/${skill}.svg`}
+                alt={skill}
+                class={`h-7 w-auto object-contain hover:scale-110 ${skill === "astro" ? "astro-logo" : ""}`}
+                width="10"
+                height="10"
+                loading="lazy"
+              />
+              <span class="text-gray-700">
+                {skill && skill.charAt(0).toUpperCase() + skill.slice(1)}
+              </span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</div>
