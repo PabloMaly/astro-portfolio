@@ -72,7 +72,6 @@ const { current = "home" } = Astro.props;
     const sections = ["home", "projects", "contact"];
     const navLinks = document.querySelectorAll("a[data-section]");
 
-    // Find which section is currently in view
     let currentSectionId = "home";
     const scrollPosition = window.scrollY + window.innerHeight / 3;
 
@@ -88,7 +87,6 @@ const { current = "home" } = Astro.props;
       }
     });
 
-    // Update active states
     navLinks.forEach((link) => {
       const section = link.getAttribute("data-section");
       if (section === currentSectionId) {
@@ -103,7 +101,6 @@ const { current = "home" } = Astro.props;
     });
   }
 
-  // Update active section on scroll
   let ticking = false;
   document.addEventListener("scroll", () => {
     if (!ticking) {
@@ -115,6 +112,5 @@ const { current = "home" } = Astro.props;
     }
   });
 
-  // Initial check
   document.addEventListener("DOMContentLoaded", updateActiveSection);
 </script>
