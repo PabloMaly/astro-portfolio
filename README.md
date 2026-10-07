@@ -48,7 +48,7 @@ MIT License - feel free to use this code for your own portfolio!
 
 ## 📧 Contact
 
-- Email: [your.pablomalyk@gmail.com](mailto:your.pablomalyk@gmail.com)
+- Email: [pablomalyk@gmail.com](mailto:pablomalyk@gmail.com)
 - GitHub: [PabloMaly](https://github.com/PabloMaly)
 - LinkedIn: [pablo-malynovytch](https://www.linkedin.com/in/pablo-malynovytch/)
 
